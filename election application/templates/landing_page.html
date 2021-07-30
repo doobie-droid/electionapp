@@ -1,0 +1,26 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}Voting Processing{% endblock %}
+{% block head %}
+  {{ super() }}
+<style>
+    .center {text-align: center; margin-left: auto; margin-right: auto; margin-bottom: auto; margin-top: 200px;}
+    body {background-color: #a2a2a2}
+    a {color: #fff}
+    .btn-info {color: #fff; background-color:#000}
+</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <div class="hero-unit center">
+          <h1>{{title_content}}</h1>
+          <br />
+          <p>{{subtitle_content}}</p>
+          <p><b>You could press the button below to go back to the homepage</b></p>
+          <a href="/" class="btn btn-dark btn-large btn-info " > Take Me Home</a>
+
+      </div></div></div></div>
+<br><br>
+{% endblock %}

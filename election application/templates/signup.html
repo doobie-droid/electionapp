@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="icon" href="../static/images/favicon.ico">
+    <title>Admin Login</title>
+
+    <!-- Bootstrap core CSS -->
+<link href="../static/bootstrap.min.css" rel="stylesheet">
+
+
+
+    <!-- Custom styles for this template -->
+    <link href="../static/login.css" rel="stylesheet">
+  </head>
+  <body class="text-center">
+
+<main class="form-signin">
+  <form>
+    <a href="{{url_for('home_page')}}"><img class="mb-4" src="../static/images/bootstrap-logo.svg" alt="" width="72" height="57"></a>
+    <h1 class="h3 mb-3 fw-normal">SIGN UP</h1>
+
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+    </div>
+
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword1" placeholder=" Repeat Password">
+      <label for="floatingPassword">Repeat Password</label>
+    </div>
+
+
+    <button class="w-100 btn btn-dark" type="submit">SIGN UP</button><br><br>
+
+  </form>
+
+</main>
+
+
+
+  </body>
+</html>

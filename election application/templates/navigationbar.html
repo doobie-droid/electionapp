@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>navigation bar</title>
+<link rel="icon" href="../static/images/favicon.ico">
+<link href="../static/homepage.css" rel="stylesheet"/>
+<link rel="stylesheet" href="../static/candidatedetails.css" />
+</head>
+
+<body>
+       <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+            <div class="container px-5">
+                <a class="navbar-brand" href="{{url_for('home_page')}}">Main Page</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{url_for('election_details')}}">Elections</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url_for('candidate_listings')}}">Contestants</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url_for('contact_admin')}}">Contact Admin</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+       <br><br><br>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}Candidate details {% endblock %}
+{% block head %}
+  {{ super() }}
+{% include 'navigationbar.html' %}
+<link rel="stylesheet" href="#">
+{% endblock %}
+{% block content %}
+<body class="is-preload">
+	<header id="header">
+		<div class="inner">
+			<a href="#" class="image avatar"><img src="data:;base64,{{profile_picture}}" alt="Profile Picture of Candidate" /></a>
+			<h1>{{election_record.candidate_about}}</h1>
+		</div>
+	</header>
+
+	<!-- Main -->
+	<div id="main">
+
+		<!-- One -->
+		<section id="one">
+			<header class="major">
+				<h2>{{election_record.candidate_name}}</h2>
+				<h3>{{election_record.candidate_age}}, {{election_record.candidate_sex}}</h3>
+			</header>
+			<p>{{election_record.candidate_policies}}</p>
+			<p>Their hobbies are: {{election_record.candidate_hobbies}}  and <br><h2>They have previously occupied these positions:</h2><br>{{election_record.candidate_past_positions}} </p>
+			<ul class="actions">
+				<li><a href="{{url_for('admin_login')}}" class="button">Admin Login</a></li>
+			</ul>
+		</section>
+
+		<!-- Two -->
+		<section id="two">
+			<h2>Your Candidate in Colour</h2>
+			<div class="row">
+				<article class="col-6 col-12-xsmall work-item">
+					<a href="images/fulls/01.jpg" class="image fit thumb"><img src="data:;base64,{{picture1}}" alt="Slow Wifi/Admin has not loaded pictures" /></a>
+					<h3>See your candidates like you have never seen them before</h3>
+				</article>
+				<article class="col-6 col-12-xsmall work-item">
+					<a href="images/fulls/02.jpg" class="image fit thumb"><img src="data:;base64,{{picture2}}" alt="Slow Wifi/Admin has not loaded pictures" /></a>
+					<h3>Oh! Look here's a nice picture</h3>
+				</article>
+				<article class="col-6 col-12-xsmall work-item">
+					<a href="images/fulls/03.jpg" class="image fit thumb"><img src="data:;base64,{{picture3}}" alt="Slow Wifi/Admin has not loaded pictures" /></a>
+					<h3>"Another one"</h3>
+				</article>
+				<article class="cosl-6 col-12-xsmall work-item">
+					<a href="images/fulls/04.jpg" class="image fit thumb"><img src="data:;base64,{{picture4}}" alt="Slow Wifi/Admin has not loaded pictures" /></a>
+					<h3>Last one</h3>
+				</article>
+			</div>
+			<ul class="actions">
+				<li><a href="{{url_for('vote_for_candidate',candidate_id=election_record.id,election_name=election_record.election_name)}}" class="button">Click to Vote</a></li>
+			</ul>
+		</section>
+
+		<!-- Three -->
+		<section id="three">
+			<h2>Get In Touch</h2>
+			<p>If you would like to email this candidate to say Hi! or discuss important
+			policy issues that regard your voting bloc.. Enter your details and click on submit</p>
+			<div class="row">
+				<div class="col-8 col-12-small">
+					<form method="post" action="{{url_for('sendmail',candidate_email=election_record.candidate_email)}}">
+						<div class="row gtr-uniform gtr-50">
+							<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+							<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+							<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
+						</div><br>
+						<ul class="actions">
+						<li><input type="submit" value="Send Message" /></li>
+					</ul>
+					</form>
+				</div>
+				<div class="col-4 col-12-small">
+					<ul class="labeled-icons">
+						<li>
+							<h3 class="icon solid fa-home"><span class="label">Address</span></h3>
+							<i class="fas fa-arrow-left"></i>Fill in the details and your favourite candidates would surely hear from you!
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</section>
+
+	</div>
+
+{% endblock %}

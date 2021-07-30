@@ -1,0 +1,27 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}Delete a Candidate!{% endblock %}
+
+{% block content %}
+{% block head %}
+
+  {{ super() }}
+{% include 'admin_navbar.html' %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+{% import "bootstrap/wtf.html" as wtf %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+
+      <h1>Edit a Candidate for an Election</h1>
+
+    <form method="POST" action="{{url_for('edit_candidate', randomstring3=randomstring3)}}" enctype="multipart/form-data">
+  <div class="form-group">
+    {{ wtf.quick_form(form, novalidate=True) }}
+  </div>
+	  <p class="space-above"><a href="{{url_for('candidate_listings')}}">See all Candidates</a></p>
+
+
+
+
+{% endblock %}

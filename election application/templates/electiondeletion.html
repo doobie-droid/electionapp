@@ -1,0 +1,26 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}Delete Election!{% endblock %}
+
+{% block content %}
+{% block head %}
+
+  {{ super() }}
+{% include 'admin_navbar.html' %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+{% import "bootstrap/wtf.html" as wtf %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+
+      <h1>Choose which Election you want to delete</h1>
+
+    <form method="POST" action="{{url_for('delete_election', randomstring4=randomstring4)}}">
+  <div class="form-group">
+    {{ wtf.quick_form(form, novalidate=True) }}
+  </div>
+	  <p class="space-above"><a href="{{url_for('home_page')}}">See all Elections</a></p>
+
+
+
+{% endblock %}

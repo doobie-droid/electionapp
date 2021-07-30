@@ -1,0 +1,43 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}Cast your Vote!{% endblock %}
+{% block head %}
+  {{ super() }}
+<link href="../static/formstyles.css" rel="stylesheet" />
+<style>
+body {
+background-color:#a2a2a2
+}
+</style>
+{% endblock %}
+{% block content %}
+<form method="POST" action="{{url_for('vote_for_candidate',candidate_id=candidate_id,election_name=election_name)}}" novalidate>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Vote for your candidate: {{election_name}}</h5>
+            {{ form.csrf_token }}
+              <div>
+
+                 {{ form.email1.label }}<br> {{ form.email1(size=30) }}<br>
+                {% for err in form.email1.errors %}
+                <p style="color:red">{{err}}</p>
+                {% endfor %}
+              </div>
+
+              <div >
+               <br>{{ form.phone_number.label }}<br>{{ form.phone_number(size=30) }}<br>
+                  {% for err in form.phone_number.errors %}
+                <p style="color:red">{{err}}</p>
+                {% endfor %}
+              </div>
+
+              <br><a href="#" class="myButton">{{form.submit1}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+{% endblock %}

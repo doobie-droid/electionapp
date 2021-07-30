@@ -1,0 +1,443 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}Election details{% endblock %}
+{% block head %}
+{{ super() }}
+{% include 'navigationbar.html' %}
+<link rel="stylesheet" href="#">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<style>
+  .row.heading h2 {
+    color: #fff;
+    font-size: 52.52px;
+    line-height: 95px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 0 40px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .heading.heading-icon {
+    display: block;
+  }
+
+  .padding-lg {
+    display: block;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .practice-area.padding-lg {
+    padding-bottom: 55px;
+    padding-top: 55px;
+  }
+
+  .practice-area .inner {
+    border: 1px solid #999999;
+    text-align: center;
+    margin-bottom: 28px;
+    padding: 40px 25px;
+  }
+
+  .our-webcoderskull .cnt-block:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    border: 0;
+  }
+
+  .practice-area .inner h3 {
+    color: #3c3c3c;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 0;
+  }
+
+  .practice-area .inner p {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+
+  .practice-area .inner img {
+    display: inline-block;
+  }
+
+
+  .our-webcoderskull {
+    background: url("http://www.webcoderskull.com/img/right-sider-banner.png") no-repeat center top / cover;
+
+  }
+
+  .our-webcoderskull .cnt-block {
+    float: left;
+    width: 100%;
+    background: #fff;
+    padding: 30px 20px;
+    text-align: center;
+    border: 2px solid #d5d5d5;
+    margin: 0 0 28px;
+  }
+
+  .our-webcoderskull .cnt-block figure {
+    width: 148px;
+    height: 148px;
+    border-radius: 100%;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+
+  .our-webcoderskull .cnt-block img {
+    width: 148px;
+    height: 148px;
+    border-radius: 100%;
+  }
+
+  .our-webcoderskull .cnt-block h3 {
+    color: #2a2a2a;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 6px 0;
+    text-transform: uppercase;
+  }
+
+  .our-webcoderskull .cnt-block h3 a {
+    text-decoration: none;
+    color: #2a2a2a;
+  }
+
+  .our-webcoderskull .cnt-block h3 a:hover {
+    color: #337ab7;
+  }
+
+  .our-webcoderskull .cnt-block p {
+    color: #2a2a2a;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+
+  .our-webcoderskull .cnt-block .follow-us {
+    margin: 20px 0 0;
+  }
+
+  .our-webcoderskull .cnt-block .follow-us li {
+    display: inline-block;
+    width: auto;
+    margin: 0 5px;
+  }
+
+  .our-webcoderskull .cnt-block .follow-us li .fa {
+    font-size: 24px;
+    color: #767676;
+  }
+
+  .our-webcoderskull .cnt-block .follow-us li .fa:hover {
+    color: #025a8e;
+  }
+
+
+
+
+  .my-card {
+    position: absolute;
+    left: 40%;
+    top: -20px;
+    border-radius: 50%;
+  }
+
+
+
+  .counter {
+    background-color: #f5f5f5;
+    padding: 20px 0;
+    border-radius: 5px;
+  }
+
+  .count-title {
+    font-size: 40px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .count-text {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .fa-2x {
+    margin: 0 auto;
+    float: none;
+    display: table;
+    color: #49bf9d;
+  }
+
+
+  /*-------------------------------*/
+  /*      Code snippet by          */
+  /*      @maridlcrmn              */
+  /*-------------------------------*/
+
+
+
+
+  .quote {
+    color: rgba(0, 0, 0, .1);
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  /*-------------------------------*/
+  /*    Carousel Fade Transition   */
+  /*-------------------------------*/
+
+  #fade-quote-carousel.carousel {
+    padding-bottom: 60px;
+  }
+
+  #fade-quote-carousel.carousel .carousel-inner .item {
+    opacity: 0;
+    -webkit-transition-property: opacity;
+    -ms-transition-property: opacity;
+    transition-property: opacity;
+  }
+
+  #fade-quote-carousel.carousel .carousel-inner .active {
+    opacity: 1;
+    -webkit-transition-property: opacity;
+    -ms-transition-property: opacity;
+    transition-property: opacity;
+  }
+
+  #fade-quote-carousel.carousel .carousel-indicators {
+    bottom: 10px;
+    margin-left: auto;
+    margin-right: auto
+  }
+
+  #fade-quote-carousel.carousel .carousel-indicators>li {
+    background-color: #e84a64;
+    border: none;
+  }
+
+  #fade-quote-carousel blockquote {
+    text-align: center;
+    border: none;
+  }
+
+  #fade-quote-carousel .profile-circle {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 100px;
+  }
+
+  section {
+    padding-top: 10px;
+    padding-bottom: 10px
+  }
+
+  .jumbotron {
+    padding: 50px
+  }
+
+  .col-md-3 {
+    padding-top: 20px;
+    padding-bottom: 20px
+  }
+</style>
+{% endblock %}
+{% block content %}
+<section id="carousel">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="quote"><i class="fa fa-quote-left fa-4x"></i></div>
+        <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="3000">
+          <!-- Carousel indicators -->
+          <!--                  <ol class="carousel-indicators">-->
+          <!--				    <li data-target="#fade-quote-carousel" data-slide-to="0" class="active"></li>-->
+          <!--				    <li data-target="#fade-quote-carousel" data-slide-to="1"></li>-->
+          <!--				    <li data-target="#fade-quote-carousel" data-slide-to="2"></li>-->
+          <!--				  </ol>-->
+          <!-- Carousel items -->
+          <div class="carousel-inner">
+            {% if number == 0 %}
+            <div class="active item">
+              <blockquote>
+                <p>Nothing in Database</p>
+              </blockquote>
+              <div class="profile-circle" style="background-color: rgba(0,0,0,.2);"></div>
+            </div>
+            {% else %}
+            <div class="active item">
+              <blockquote>
+                <p>{{candidates[0].candidate_policies}}</p><br>--- {{candidates[0].candidate_name}}
+              </blockquote>
+              <div class="profile-circle" style="background-color: rgba(0,0,0,.9);"></div>
+            </div>
+            {% for candidate in candidates_except_first %}
+            <div class="item">
+              <blockquote>
+                <p>{{candidate.candidate_policies}}</p><br>--- {{candidate.candidate_name}}
+              </blockquote>
+              <div class="profile-circle" style="background-color: rgba(77,5,51,.2);"></div>
+            </div>
+            {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="jumbotron">
+    <div class="row w-100">
+      {% if number == 0 %}
+      <div class="col-md-3">
+        <div class="card border-success mx-sm-1 p-3">
+          <div class="card border-success shadow text-success p-3 my-card"><span class="fa fa-eye" aria-hidden="true"></span></div>
+          <div class="text-success text-center mt-3">
+            <h4>No Contestants</h4>
+          </div>
+          <div class="text-success text-center mt-2">
+            <h1>No Vote Count Yet</h1>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      {% for candidate in candidates %}
+      <div class="col-md-3">
+        <div class="card border-success mx-sm-1 p-3">
+          <div class="card border-success shadow text-success p-3 my-card"><span class="fa fa-eye" aria-hidden="true"></span></div>
+          <div class="text-success text-center mt-3">
+            <h4>{{candidate.candidate_name}}</h4>
+          </div>
+          <div class="text-success text-center mt-2">
+            <h1>{{candidate.vote_count}}</h1>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+<section class="our-webcoderskull padding-lg">
+  <div class="container">
+    <div class="row heading heading-icon">
+      {% if number == 0 %}
+      <h2>Election Candidates </h2>
+      {% else %}
+      <h2>{{candidates[0].election_name}}</h2>
+      {% endif %}
+    </div>
+    <ul class="row">
+      {% if number == 0 %}
+      <li class="col-12 col-md-6 col-lg-3">
+        <div class="cnt-block equal-hight" style="height: 349px;">
+          <a href="{{url_for('admin_login')}}">
+            <figure><img src="http://www.webcoderskull.com/img/team4.png" class="img-responsive" alt=""></figure>
+          </a>
+          <h3><a href="{{url_for('admin_login')}}">Click to Add Details</a></h3>
+          <a href="{{url_for('candidate_listings')}}">
+            <p>No Contestant Yet</p>
+          </a>
+        </div>
+      </li>
+      {% else %}
+      {% for candidate in candidates %}
+      <li class="col-12 col-md-6 col-lg-3">
+        <div class="cnt-block equal-hight" style="height: 349px;">
+          <a href="{{url_for('candidate_listings1',election_id = candidate.id)}}">
+            <figure><img src="../static/images/placeholder.jpg" class="img-responsive" alt=""></figure>
+          </a>
+          <h3><a href="{{url_for('vote_for_candidate',candidate_id=candidate.id,election_name=candidate.election_name)}}">Vote</a></h3>
+          <a href="{{url_for('candidate_listings')}}">
+            <p>{{candidate.candidate_name}}</p>
+          </a>
+          <p>Click the link above to find out about the candidate in detail</p>
+        </div>
+      </li>
+      {% endfor %}
+      {% endif %}
+
+    </ul>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <br />
+      <div class="col text-center">
+        <h2></h2>
+        <p>Election Stats at a go!</p>
+      </div>
+
+
+
+    </div>
+    <div class="row text-center">
+      <div class="col">
+        <div class="counter">
+          <i class="fa fa-calculator fa-2x"></i>
+          <p class="count-text ">Total Vote Count</p>
+          {% if number == 0 %}
+          <p class="count-text ">Add an Election</p>
+          {% else %}
+          <p class="count-text ">{{vote_tally}}</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col">
+        <div class="counter">
+          <i class="fa fa-male fa-2x"></i>
+          <p class="count-text ">Leading Candidate</p>
+          {% if number == 0 %}
+          <p class="count-text ">Add an Election</p>
+          {% else %}
+          <p class="count-text ">{{winning_candidate}}</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col">
+        <div class="counter">
+          <i class="fa fa-bell fa-2x"></i>
+          <p class="count-text ">Election Start</p>
+          {% if number == 0 %}
+          <p class="count-text ">Add an Election</p>
+          {% else %}
+          <p class="count-text ">{{candidates[0].election_start}}</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col">
+        <div class="counter">
+          <i class="fa fa-bell fa-2x"></i>
+          <p class="count-text ">Election End</p>
+          {% if number == 0 %}
+          <p class="count-text ">Add an Election</p>
+          {% else %}
+          <p class="count-text ">{{candidates[0].election_end}}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+</section>
+{% include 'footer.html' %}
+{% endblock %}
